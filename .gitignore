@@ -1,0 +1,22 @@
+# Ignore environment files
+.env
+*.env
+
+# Ignore OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Ignore Termux / Linux system files
+*.log
+*.swp
+*.tmp
+
+# Ignore node / build stuff (if you ever add npm)
+node_modules/
+dist/
+build/
+
+# Ignore private keys
+*.pem
+*.key
+*.crt
