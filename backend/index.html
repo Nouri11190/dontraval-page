@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dontraval IT</title>
+<style>
+body { font-family: Arial; margin: 20px; }
+input, select, button { margin: 5px 0; padding: 8px; }
+.service { margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<h1>Dontraval IT - Hosting, VPN, E-books & Crypto Payments</h1>
+
+<h2>Crypto Payment Verification</h2>
+<select id="network">
+    <option value="bsc">Binance Smart Chain (BSC)</option>
+    <option value="eth">Ethereum (ETH)</option>
+</select><br>
+
+<input id="txtAddress" placeholder="Wallet Address"><br>
+<input id="txtTokenAddress" placeholder="Token Address"><br>
+<input id="blockNumberFrom" type="number" placeholder="Block From"><br>
+<input id="blockNumberTo" type="number" placeholder="Block To"><br>
+<button id="btnVerify">Verify Payment</button>
+<pre id="paymentResponse"></pre>
+
+<h2>Free / Limited Services</h2>
+<div class="service">
+  <button onclick="accessService('VPN')">Access Free VPN</button>
+</div>
+<div class="service">
+  <button onclick="accessService('Hosting')">Access Free Hosting</button>
+</div>
+<div class="service">
+  <button onclick="accessService('E-books')">Access Free E-books</button>
+</div>
+<pre id="serviceResponse"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+<script>
+// Verify crypto payment
+async function verifyPayment() {
+    const network = document.getElementById('network').value;
+    const wallet = document.getElementById('txtAddress').value;
+    const token = document.getElementById('txtTokenAddress').value;
+    const blockFrom = document.getElementById('blockNumberFrom').value;
+    const blockTo = document.getElementById('blockNumberTo').value;
+
+    const res = await fetch('/validate-payment', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ wallet, token, blockFrom, blockTo, network })
+    });
+    const data = await res.json();
+    document.getElementById('paymentResponse').textContent = JSON.stringify(data, null, 2);
+}
+
+// Access free/limited services
+async function accessService(service) {
+    const res = await fetch('/access-service', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ service, user: 'anonymous' })
+    });
+    const data = await res.json();
+    document.getElementById('serviceResponse').textContent = JSON.stringify(data, null, 2);
+}
+
+// Event listener
+document.getElementById('btnVerify').addEventListener('click', verifyPayment);
+</script>
+
+</body>
+</html>
