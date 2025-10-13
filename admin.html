@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dontraval Admin Upload</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #00ffff;
+    }
+    form {
+      background-color: #161616;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      color: #00e6e6;
+    }
+    input[type="file"], select {
+      background: #222;
+      border: none;
+      color: #fff;
+      padding: 0.5rem;
+      width: 100%;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 2rem;
+      border: none;
+      background: #00ffff;
+      color: #000;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00cccc;
+    }
+    #result {
+      margin-top: 1rem;
+      color: #00e6e6;
+    }
+  </style>
+</head>
+<body>
+  <h1>📤 Dontraval Admin Panel</h1>
+
+  <form id="uploadForm">
+    <label for="fileType">Select Category</label>
+    <select id="fileType" name="fileType" required>
+      <option value="vpn">VPN File</option>
+      <option value="ebook">eBook</option>
+    </select>
+
+    <label for="file">Choose File</label>
+    <input type="file" id="file" name="file" required />
+
+    <button type="submit">Upload</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("file").files[0];
+      const type = document.getElementById("fileType").value;
+      const result = document.getElementById("result");
+
+      if (!file) return (result.textContent = "⚠️ Please select a file.");
+
+      result.textContent = "⏳ Uploading...";
+
+      try {
+        // Replace with your backend or Cloudflare Worker URL
+        const uploadEndpoint = "https://your-worker-or-api-url.com/upload";
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("type", type);
+
+        const response = await fetch(uploadEndpoint, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          result.textContent = `✅ Uploaded successfully: ${data.fileUrl || file.name}`;
+        } else {
+          result.textContent = "❌ Upload failed.";
+        }
+      } catch (err) {
+        result.textContent = "⚠️ Network error or server not reachable.";
+      }
+    });
+  </script>
+</body>
+</html>
