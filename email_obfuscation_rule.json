@@ -1,0 +1,9 @@
+{
+  "description": "Email Address Obfuscation Rule for dontraval.it.com",
+  "action": "set_config",
+  "action_parameters": {
+    "email_obfuscation": "on"
+  },
+  "expression": "(http.host eq \"dontraval.it.com\" or http.host eq \"www.dontraval.it.com\")",
+  "enabled": true
+}

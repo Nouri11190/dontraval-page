@@ -1,0 +1,16 @@
+# 🌤️ Wrangler configuration for dontraval.it.com
+name = "dontraval-page"
+main = "backend/verify-turnstile.js"
+compatibility_date = "2025-10-07"
+
+# Publish directory for Cloudflare Pages
+pages_build_output_dir = "."
+
+# Custom domain
+route = "dontraval.it.com/*"
+zone_name = "dontraval.it.com"
+
+[vars]
+NODE_ENV = "production"
+
+# Add your secrets securely using Wrangler CLI (see below)

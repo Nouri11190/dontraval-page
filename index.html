@@ -1,149 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dontraval IT – Hosting & Cybersecurity</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1a237e, #0d47a1);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header {
-      margin-bottom: 40px;
-    }
-    nav {
-      margin-bottom: 30px;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ff5722;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      width: 200px;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      background: rgba(255,255,255,0.2);
-    }
-    .card h3 {
-      margin: 10px 0;
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      font-size: 0.9em;
-      color: white;
-      background: #ff5722;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .card a:hover {
-      background: #e64a19;
-    }
-    .btn {
-      display: inline-block;
-      padding: 15px 25px;
-      font-size: 1.1em;
-      color: white;
-      background: #ff5722;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #e64a19;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Welcome to Dontraval IT</h1>
-    <p>Your trusted partner in Hosting, VPN, and Cybersecurity Solutions</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnstile Verification | dontraval.it.com</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  </head>
+  <body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
+    <h2>Verify Access</h2>
+    <form id="verifyForm">
+      <div class="cf-turnstile" data-sitekey="OX4AAAAAAB6.JPRAoqWfmCyQ4"></div>
+      <br />
+      <button type="submit">Verify</button>
+    </form>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="hosting.html">Hosting</a>
-    <a href="vpn.html">VPN</a>
-    <a href="cybersecurity.html">Cybersecurity</a>
-    <a href="ebooks.html">E-Books</a>
-    <a href="payments.html">Payments</a>
-  </nav>
+    <p id="response"></p>
 
-  <!-- Services -->
-  <section class="services">
-    <div class="card">
-      <h3>🌐 Web Hosting</h3>
-      <p>Reliable domain hosting for your business.</p>
-      <a href="hosting.html">Explore</a>
-    </div>
-    <div class="card">
-      <h3>🛡️ VPN Services</h3>
-      <p>Secure and private internet access worldwide.</p>
-      <a href="vpn.html">Explore</a>
-    </div>
-    <div class="card">
-      <h3>🔒 Cybersecurity</h3>
-      <p>Training & tools for schools and companies.</p>
-      <a href="cybersecurity.html">Explore</a>
-    </div>
-    <div class="card">
-      <h3>📚 E-Books</h3>
-      <p>Learn IT, security, and digital skills.</p>
-      <a href="ebooks.html">Explore</a>
-    </div>
-    <div class="card">
-      <h3>💳 Payments</h3>
-      <p>Paystack & crypto subscriptions supported.</p>
-      <a href="payments.html">Explore</a>
-    </div>
-  </section>
-
-  <!-- Pitch Deck -->
-  <a class="btn" href="unified_platform_pitch.pdf" target="_blank">
-    📂 Download Pitch Deck
-  </a>
-
-  <footer>
-    <p>&copy; 2025 Dontraval IT | All Rights Reserved</p>
-  </footer>
-</body>
+    <script>
+      document.getElementById("verifyForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const token = document.querySelector("[name='cf-turnstile-response']").value;
+        const res = await fetch("https://dontraval.it.com/api/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }),
+        });
+        const data = await res.json();
+        document.getElementById("response").innerText = data.success
+          ? "✅ Verification successful!"
+          : "❌ Verification failed.";
+      });
+    </script>
+  </body>
 </html>
