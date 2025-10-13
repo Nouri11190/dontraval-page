@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ebook-001",
+    "title": "VPN Setup Guide",
+    "author": "Dontraval",
+    "file": "/assets/ebooks/vpn-setup-guide.pdf",
+    "price": 0,
+    "tags": ["vpn","setup","guide"]
+  },
+  {
+    "id": "ebook-002",
+    "title": "Metal Products Catalog",
+    "author": "Dontraval",
+    "file": "/assets/ebooks/metal-catalog.pdf",
+    "price": 2.99,
+    "tags": ["catalog","metal"]
+  }
+]

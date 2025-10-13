@@ -1,0 +1,16 @@
+[
+  {
+    "id": "vpn-1",
+    "name": "Dontraval VPN - Basic",
+    "region": "EU",
+    "config": "/assets/vpn/dontraval-basic.ovpn",
+    "price": 0
+  },
+  {
+    "id": "vpn-2",
+    "name": "Dontraval VPN - Pro",
+    "region": "US",
+    "config": "/assets/vpn/dontraval-pro.zip",
+    "price": 4.99
+  }
+]
