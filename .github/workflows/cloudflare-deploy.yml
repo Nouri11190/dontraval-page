@@ -29,5 +29,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: dontraval-page
+          projectName: duntraval
           directory: ./  # change if your build output folder is different (like dist or build)
