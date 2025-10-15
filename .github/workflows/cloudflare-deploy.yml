@@ -1,5 +1,4 @@
-
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Pages (DunFamzzy)
 
 on:
   push:
@@ -8,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -19,16 +19,26 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (if package.json exists)
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found — skipping npm install."
+          fi
 
-      - name: Build project
-        run: npm run build --if-present
+      - name: Build project (optional)
+        run: |
+          if [ -f package.json ]; then
+            npm run build --if-present
+          else
+            echo "No build step detected — continuing."
+          fi
 
-      - name: Publish to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: shy-lake-d4deshy-lake-d4de
-          directory: ./  # change if your build output folder is different (like dist or build)
+          projectName: DunFamzzy
+          directory: ./
