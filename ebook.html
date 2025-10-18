@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Books | Dontraval</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="vpn.html">VPN</a>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="ebooks.html">E-Books</a>
+      <a href="payments.html">Payments</a>
+    </nav>
+  </header>
+
+  <section id="ebooks-container">
+    <h1>📚 E-Books Library</h1>
+    <div id="ebooks-list">Loading e-books...</div>
+  </section>
+
+  <footer>© 2025 Dontraval IT | All Rights Reserved</footer>
+
+  <script>
+    async function loadEbooks() {
+      try {
+        const response = await fetch('data/ebook.json');
+        const ebooks = await response.json();
+
+        const container = document.getElementById('ebooks-list');
+        container.innerHTML = ebooks.map(book => `
+          <div class="ebook-card">
+            <h3>${book.title}</h3>
+            <p>${book.description}</p>
+            <a href="${book.link}" target="_blank">Download</a>
+          </div>
+        `).join('');
+      } catch (err) {
+        document.getElementById('ebooks-list').textContent = 'Failed to load e-books.';
+      }
+    }
+
+    loadEbooks();
+  </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* === Dontraval Universal Style === */
+/* Modern responsive layout for all pages */
+/* === Dontraval Theme System === */
+:root {
+  --background: #ffffff;
+  --text: #222;
+  --secondary: #1a1a1a;
+  --accent: #00aaff;
+}
+
+[data-theme="dark"] {
+  --background: #0d1117;
+  --text: #f0f6fc;
+  --secondary: #161b22;
+  --accent: #1f6feb;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  --primary: #0078ff;
+  --secondary: #0b1736;
+  --accent: #00d4ff;
+  --bg: #f9fbff;
+  --text: #1a1a1a;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+nav {
+  background: var(--secondary);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  box-shadow: var(--shadow);
+}
+
+nav .logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+/* Page Header */
+header {
+  text-align: center;
+  padding: 50px 10px 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: var(--secondary);
+}
+
+header p {
+  font-size: 1.1rem;
+  margin-top: 8px;
+  color: #444;
+}
+
+/* Content Layout */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+  flex: 1;
+}
+
+/* Grid Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 20px 10px;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* === Dontraval Universal Navbar === */
+nav {
+  background: var(--secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1.2rem 0;
+  background: var(--secondary);
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* === Responsive Navbar === */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: var(--secondary);
+    display: none;
+    padding: 1rem 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+/* === Theme Toggle Button === */
+.theme-toggle {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
