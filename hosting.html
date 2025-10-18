@@ -1,64 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dontraval Hosting Platform</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      color: #38bdf8;
-      text-align: center;
-    }
-    p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .button {
-      background: #38bdf8;
-      padding: 12px 24px;
-      border-radius: 8px;
-      color: #0f172a;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .button:hover {
-      background: #0ea5e9;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hosting Tools | Dontraval</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <h1>Welcome to Dontraval Hosting</h1>
-  <p>
-    This is the main platform hosting page for <strong>Dontraval</strong>.
-    You can manage your web projects, access your dashboard, or explore other
-    products directly from here.
-  </p>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="vpn.html">VPN</a>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="ebooks.html">E-Books</a>
+      <a href="payments.html">Payments</a>
+    </nav>
+  </header>
 
-  <h2>Resources</h2>
-  <ul>
-    <li><a href="downloads.html">Downloads Page</a> — VPN Configurations & eBooks</li>
-    <li><a href="vpn.html">VPN Configuration</a> — View secure VPN setups</li>
-    <li><a href="ebooks.html">eBooks Library</a> — Browse and read</li>
-    <li><a href="unified_platform_pitch.pdf" download>📄 Download Unified Platform PDF</a></li>
-  </ul>
+  <section id="hosting-container">
+    <h1>🌐 Hosting Resources</h1>
+    <div id="hosting-list">Loading Hosting Tools...</div>
+  </section>
 
-  <a href="dashboard.html" class="button">Open Dashboard</a>
+  <footer>© 2025 Dontraval IT | All Rights Reserved</footer>
+
+  <script>
+    async function loadHosting() {
+      try {
+        const response = await fetch('data/hosting.json');
+        const tools = await response.json();
+
+        const container = document.getElementById('hosting-list');
+        container.innerHTML = tools.map(tool => `
+          <div class="hosting-card">
+            <h3>${tool.name}</h3>
+            <p>${tool.description}</p>
+            <a href="${tool.link}" target="_blank">Visit</a>
+          </div>
+        `).join('');
+      } catch (err) {
+        document.getElementById('hosting-list').textContent = 'Failed to load hosting tools.';
+      }
+    }
+
+    loadHosting();
+  </script>
 </body>
 </html>

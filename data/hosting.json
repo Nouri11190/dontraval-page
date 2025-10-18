@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Netlify",
+    "description": "Free hosting for frontend web apps.",
+    "link": "https://www.netlify.com"
+  },
+  {
+    "name": "Cloudflare Pages",
+    "description": "Fast, serverless hosting with CDN.",
+    "link": "https://pages.cloudflare.com"
+  }
+]
