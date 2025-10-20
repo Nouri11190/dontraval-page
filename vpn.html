@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN Configurations | Dontraval</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPN | Dontraval IT</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/nav.js"></script>
+  <script defer src="assets/vpn.js"></script>
 </head>
 <body>
   <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="hosting.html">Hosting</a>
-      <a href="vpn.html">VPN</a>
-      <a href="cybersecurity.html">Cybersecurity</a>
-      <a href="ebooks.html">E-Books</a>
-      <a href="payments.html">Payments</a>
+    <nav class="navbar">
+      <h1 class="logo">Dontraval IT</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hosting.html">Hosting</a></li>
+        <li><a href="vpn.html" class="active">VPN</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="ebooks.html">E-Books</a></li>
+        <li><a href="payments.html">Payments</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn">🌙</button>
     </nav>
   </header>
 
-  <section id="vpn-container">
-    <h1>🔒 VPN Configurations</h1>
-    <div id="vpn-list">Loading VPNs...</div>
-  </section>
+  <main class="fade">
+    <section class="hero">
+      <h2>VPN Configurations</h2>
+      <p>Download fast and secure VPN configurations for all your devices.</p>
+    </section>
 
-  <footer>© 2025 Dontraval IT | All Rights Reserved</footer>
+    <section class="vpn-container" id="vpnList">
+      <p class="loading">Loading VPN configurations...</p>
+    </section>
+  </main>
 
-  <script>
-    async function loadVPNs() {
-      try {
-        const response = await fetch('data/vpn.json');
-        const vpns = await response.json();
-
-        const container = document.getElementById('vpn-list');
-        container.innerHTML = vpns.map(vpn => `
-          <div class="vpn-card">
-            <h3>${vpn.name}</h3>
-            <p>${vpn.description}</p>
-            <a href="${vpn.download}" target="_blank">Download Config</a>
-          </div>
-        `).join('');
-      } catch (err) {
-        document.getElementById('vpn-list').textContent = 'Failed to load VPN list.';
-      }
-    }
-
-    loadVPNs();
-  </script>
+  <footer>
+    <p>© 2025 Dontraval IT | All Rights Reserved</p>
+  </footer>
 </body>
 </html>

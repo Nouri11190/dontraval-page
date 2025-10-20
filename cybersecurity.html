@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cybersecurity – Dontraval IT</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: linear-gradient(135deg, #1a237e, #0d47a1); color: white; text-align: center; padding: 40px 20px; }
-    header { margin-bottom: 30px; }
-    nav { margin-bottom: 30px; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
-    nav a:hover { color: #ff5722; }
-    h1 { font-size: 2.2em; margin-bottom: 15px; }
-    p { font-size: 1.1em; max-width: 600px; margin: 0 auto 20px auto; }
-    footer { margin-top: 50px; font-size: 0.9em; color: #ccc; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity | Dontraval IT</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/nav.js"></script>
+  <script defer src="assets/cybersecurity.js"></script>
 </head>
 <body>
   <header>
-    <h1>Cybersecurity</h1>
-    <p>Training & protection for schools, businesses, and organizations.</p>
+    <nav class="navbar">
+      <h1 class="logo">Dontraval IT</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hosting.html">Hosting</a></li>
+        <li><a href="vpn.html">VPN</a></li>
+        <li><a href="cybersecurity.html" class="active">Cybersecurity</a></li>
+        <li><a href="ebooks.html">E-Books</a></li>
+        <li><a href="payments.html">Payments</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="hosting.html">Hosting</a>
-    <a href="vpn.html">VPN</a>
-    <a href="cybersecurity.html">Cybersecurity</a>
-    <a href="ebooks.html">E-Books</a>
-    <a href="payments.html">Payments</a>
-  </nav>
+  <main class="fade">
+    <section class="hero">
+      <h2>Cybersecurity Tools</h2>
+      <p>Access our curated suite of online security utilities for everyday protection.</p>
+    </section>
 
-  <section>
-    <p>Our cybersecurity programs include training, audits, and tools designed to protect critical data and defend against modern threats.</p>
-  </section>
+    <section class="cyber-container" id="cyberList">
+      <p class="loading">Loading cybersecurity tools...</p>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Dontraval IT | All Rights Reserved</p>
+    <p>© 2025 Dontraval IT | All Rights Reserved</p>
   </footer>
 </body>
 </html>

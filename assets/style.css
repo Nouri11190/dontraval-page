@@ -246,6 +246,35 @@ footer {
   }
 }
 
+/* Search bar styling */
+.search-area {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.search-input {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px 15px;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.search-input:focus {
+  border-color: var(--accent-hover);
+}
+
+.no-results {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: var(--text-muted);
+}
+
 /* === Theme Toggle Button === */
 .theme-toggle {
   border: none;

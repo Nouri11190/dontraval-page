@@ -1,12 +1,22 @@
 [
   {
-    "name": "Netlify",
-    "description": "Free hosting for frontend web apps.",
-    "link": "https://www.netlify.com"
+    "name": "Shared Hosting",
+    "description": "Affordable shared hosting for small business sites and personal projects.",
+    "link": "https://dumfamzzy.pages.dev/hosting/shared"
   },
   {
-    "name": "Cloudflare Pages",
-    "description": "Fast, serverless hosting with CDN.",
-    "link": "https://pages.cloudflare.com"
+    "name": "VPS Hosting",
+    "description": "Virtual Private Servers with full root access and SSD performance.",
+    "link": "https://dumfamzzy.pages.dev/hosting/vps"
+  },
+  {
+    "name": "Dedicated Servers",
+    "description": "Enterprise-grade hardware for maximum performance and uptime.",
+    "link": "https://dumfamzzy.pages.dev/hosting/dedicated"
+  },
+  {
+    "name": "Cloud Hosting",
+    "description": "Auto-scaling cloud infrastructure designed for reliability and growth.",
+    "link": "https://dumfamzzy.pages.dev/hosting/cloud"
   }
 ]

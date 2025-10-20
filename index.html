@@ -3,35 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dontraval IT - Home</title>
+  <title>Hosting | Dontraval IT</title>
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/nav.js"></script>
+  <script defer src="assets/hosting.js"></script>
 </head>
-
 <body>
-  <!-- === Dontraval Universal Navbar === -->
-  <nav>
-    <div class="logo">Dontraval IT</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="hosting.html">Hosting</a></li>
-      <li><a href="vpn.html">VPN</a></li>
-      <li><a href="cybersecurity.html">Cybersecurity</a></li>
-      <li><a href="ebooks.html">E-Books</a></li>
-      <li><a href="payments.html">Payments</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Dontraval IT</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hosting.html" class="active">Hosting</a></li>
+        <li><a href="vpn.html">VPN</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="ebooks.html">E-Books</a></li>
+        <li><a href="payments.html">Payments</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </nav>
+  </header>
 
-  <main>
-    <section>
-      <h1>Welcome to Dontraval IT</h1>
-      <p>Explore secure hosting, VPN tools, cybersecurity, and digital e-learning resources.</p>
+  <main class="fade">
+    <section class="hero">
+      <h2>Web & Cloud Hosting</h2>
+      <p>Explore our top hosting platforms for your apps and digital services.</p>
+    </section>
+
+    <section class="hosting-container" id="hostingList">
+      <p class="loading">Loading Hosting Platforms...</p>
     </section>
   </main>
 
   <footer>
-    © 2025 Dontraval IT | All Rights Reserved
+    <p>© 2025 Dontraval IT | All Rights Reserved</p>
   </footer>
 </body>
 </html>

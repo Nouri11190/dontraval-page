@@ -1,12 +1,17 @@
 [
   {
-    "name": "US VPN Config",
-    "description": "Free fast VPN for USA region.",
-    "download": "https://dumfamzzy.pages.dev/assets/vpn/us-config.ovpn"
+    "name": "Free VPN Config Pack",
+    "description": "Ready-to-use VPN configurations for multiple protocols.",
+    "link": "https://dumfamzzy.pages.dev/assets/vpn/configs.zip"
   },
   {
-    "name": "EU VPN Config",
-    "description": "Stable connection for European servers.",
-    "download": "https://dumfamzzy.pages.dev/assets/vpn/eu-config.ovpn"
+    "name": "OpenVPN Files",
+    "description": "Download OpenVPN profiles for Android, iOS, and Windows clients.",
+    "link": "https://dumfamzzy.pages.dev/assets/vpn/openvpn.zip"
+  },
+  {
+    "name": "WireGuard Keys",
+    "description": "Secure WireGuard tunnel keys and configuration samples.",
+    "link": "https://dumfamzzy.pages.dev/assets/vpn/wireguard.zip"
   }
 ]
