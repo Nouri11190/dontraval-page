@@ -1,0 +1,10 @@
+{
+  "etherscan": {
+    "apiKey": "1658ca7976aa40d6846582698b350ac2",
+    "network": "https://mainnet.	infura.io/v3/"
+  },
+  "bscscan": {
+    "apiKey": "ZM8ACMJB67C2IXKKBF8URFUNSY",
+    "network": "https://api.bscscan.com/api"
+  }
+}

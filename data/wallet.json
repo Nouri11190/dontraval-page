@@ -1,0 +1,38 @@
+{
+  "ens": "Sllen.eth",
+  "address": "0xeed79733bf831e3abaff4f43e6658a67b497952b",
+  "networks": {
+    "eth": {
+      "provider": "https://mainnet.infura.io/v3/1658ca7976aa40d68465xxxxxxxx"
+    },
+    "bsc": {
+      "provider": "https://bsc-dataseed.binance.org/"
+    }
+  },
+  "tokens": {
+    "erc20": [
+      {
+        "symbol": "USDT",
+        "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "decimals": 6
+      },
+      {
+        "symbol": "DAI",
+        "contract": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "decimals": 18
+      }
+    ],
+    "bep20": [
+      {
+        "symbol": "USDT",
+        "contract": "0x55d398326f99059fF775485246999027B3197955",
+        "decimals": 18
+      },
+      {
+        "symbol": "BUSD",
+        "contract": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+        "decimals": 18
+      }
+    ]
+  }
+}

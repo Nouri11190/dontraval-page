@@ -1,22 +1,12 @@
 [
   {
-    "name": "Shared Hosting",
-    "description": "Affordable shared hosting for small business sites and personal projects.",
-    "link": "https://dumfamzzy.pages.dev/hosting/shared"
+    "name": "Dumfamzzy Cloud",
+    "description": "Optimized web and app hosting for media and storage.",
+    "url": "https://cloud.dumfamzzy.xyz"
   },
   {
-    "name": "VPS Hosting",
-    "description": "Virtual Private Servers with full root access and SSD performance.",
-    "link": "https://dumfamzzy.pages.dev/hosting/vps"
-  },
-  {
-    "name": "Dedicated Servers",
-    "description": "Enterprise-grade hardware for maximum performance and uptime.",
-    "link": "https://dumfamzzy.pages.dev/hosting/dedicated"
-  },
-  {
-    "name": "Cloud Hosting",
-    "description": "Auto-scaling cloud infrastructure designed for reliability and growth.",
-    "link": "https://dumfamzzy.pages.dev/hosting/cloud"
+    "name": "Dumfamzzy Dev Host",
+    "description": "Fast sandbox environment for developer testing.",
+    "url": "https://devlab-dumfamzzy.pages.dev"
   }
 ]

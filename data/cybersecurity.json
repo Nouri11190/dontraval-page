@@ -1,0 +1,12 @@
+[
+  {
+    "name": "HaveIBeenPwned",
+    "description": "Check if your email appears in any data breaches",
+    "url": "https://haveibeenpwned.com"
+  },
+  {
+    "name": "VirusTotal",
+    "description": "Scan URLs or files for malware detection",
+    "url": "https://www.virustotal.com"
+  }
+]

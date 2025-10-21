@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dumfamzzy Unified Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Dumfamzzy Unified Dashboard</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ebook.html">E-Books</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+  </nav>
+</header>
+
+<main>
+  <section id="wallets" class="card">
+    <h2>💰 Wallet Balances</h2>
+    <div id="walletInfo">Fetching wallet data...</div>
+  </section>
+
+  <section id="vpn" class="card">
+    <h2>🛡 VPN & DNS Hosts</h2>
+    <div id="vpnList">Loading VPN data...</div>
+  </section>
+
+  <section id="hosting" class="card">
+    <h2>☁️ Hosting Services</h2>
+    <div id="hostingList">Loading hosting data...</div>
+  </section>
+
+  <section id="ebooks" class="card">
+    <h2>📚 E-Books & PDFs</h2>
+    <p>VPN Setup Guide — <a href="./assets/ebooks/vpn_guide.pdf" download>Download</a></p>
+    <p>Metal Products Catalog — <a href="./assets/ebooks/metal_catalog.pdf" download>Download</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Dumfamzzy | All Rights Reserved</p>
+</footer>
+
+<script>
+async function loadJSON(path) {
+  const res = await fetch(path);
+  return await res.json();
+}
+
+async function getTokenBalance(providerUrl, walletAddress, tokenContract, decimals) {
+  try {
+    const provider = new ethers.JsonRpcProvider(providerUrl);
+    const abi = ["function balanceOf(address) view returns (uint256)"];
+    const contract = new ethers.Contract(tokenContract, abi, provider);
+    const balance = await contract.balanceOf(walletAddress);
+    return (Number(ethers.formatUnits(balance, decimals))).toFixed(4);
+  } catch (e) {
+    return "0.0000";
+  }
+}
+
+async function initDashboard() {
+  const wallet = await loadJSON('./data/wallet.json');
+  const vpn = await loadJSON('./data/vpn.json');
+  const hosting = await loadJSON('./data/hosting.json');
+
+  // --- WALLET SECTION ---
+  const walletDiv = document.getElementById('walletInfo');
+  let html = `<p><strong>ENS:</strong> ${wallet.ens}</p>`;
+  html += `<p><strong>Address:</strong> ${wallet.address}</p>`;
+
+  // ERC20
+  html += `<h3>Ethereum Network (ERC20)</h3>`;
+  for (const t of wallet.tokens.erc20) {
+    const bal = await getTokenBalance(wallet.networks.eth.provider, wallet.address, t.contract, t.decimals);
+    html += `<p>${t.symbol}: ${bal}</p>`;
+  }
+
+  // BEP20
+  html += `<h3>Binance Smart Chain (BEP20)</h3>`;
+  for (const t of wallet.tokens.bep20) {
+    const bal = await getTokenBalance(wallet.networks.bsc.provider, wallet.address, t.contract, t.decimals);
+    html += `<p>${t.symbol}: ${bal}</p>`;
+  }
+
+  walletDiv.innerHTML = html;
+
+  // --- VPN SECTION ---
+  document.getElementById('vpnList').innerHTML = vpn.map(v =>
+    `<p><strong>${v.name}</strong><br>${v.description}<br><a href="${v.download}" download>Download</a></p>`
+  ).join('');
+
+  // --- HOSTING SECTION ---
+  document.getElementById('hostingList').innerHTML = hosting.map(h =>
+    `<p><strong>${h.name}</strong><br>${h.description}<br><a href="${h.url}" target="_blank">Visit</a></p>`
+  ).join('');
+}
+
+initDashboard();
+</script>
+</body>
+</html>

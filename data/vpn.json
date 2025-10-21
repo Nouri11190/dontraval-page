@@ -1,17 +1,12 @@
 [
   {
-    "name": "Free VPN Config Pack",
-    "description": "Ready-to-use VPN configurations for multiple protocols.",
-    "link": "https://dumfamzzy.pages.dev/assets/vpn/configs.zip"
+    "name": "Dumfamzzy VPN Config 1",
+    "description": "Secure connection using OpenVPN protocol.",
+    "download": "./assets/ebooks/vpn_guide.pdf"
   },
   {
-    "name": "OpenVPN Files",
-    "description": "Download OpenVPN profiles for Android, iOS, and Windows clients.",
-    "link": "https://dumfamzzy.pages.dev/assets/vpn/openvpn.zip"
-  },
-  {
-    "name": "WireGuard Keys",
-    "description": "Secure WireGuard tunnel keys and configuration samples.",
-    "link": "https://dumfamzzy.pages.dev/assets/vpn/wireguard.zip"
+    "name": "Dumfamzzy DNS Secure",
+    "description": "DNS resolver with malware and ad-block filtering.",
+    "download": "./assets/ebooks/metal_catalog.pdf"
   }
 ]
