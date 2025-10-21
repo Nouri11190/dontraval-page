@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages (DunFamzzy)
+name: Deploy to Cloudflare Pages (DumFamzzy)
 
 on:
   push:
@@ -40,5 +40,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: DunFamzzy
+          projectName: DumFamzzy
           directory: ./
